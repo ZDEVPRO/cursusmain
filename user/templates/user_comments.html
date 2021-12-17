@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- belle/cart-variant1.html   11 Nov 2019 12:44:31 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Cart Page &ndash; Belle Multipurpose Bootstrap 4 Template</title>
+<meta name="description" content="description">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon -->
+<link rel="shortcut icon" href="{% static 'assets/images/favicon.png'%}" />
+
+<link rel="stylesheet" href="{% static 'assets/css/plugins.css'%}">
+<!-- Bootstap CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css'%}">
+<!-- Main Style CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}">
+<link rel="stylesheet" href="{% static 'comments/fontawesome.css'%}">
+    {% block header %}{% include 'header.html' %} {% endblock %}
+</head>
+<body class="page-template belle cart-variant1">
+
+
+
+
+
+
+
+
+
+
+    <!--Body Content-->
+    <div id="page-content">
+    	<!--Page Title-->
+    	<div class="page section-header text-center">
+			<div class="page-title">
+        		<div class="wrapper"><h1 class="page-width"></h1></div>
+      		</div>
+		</div>
+        <!--End Page Title-->
+
+        <div class="container">
+        	<div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
+                	<div class="alert alert-success text-uppercase" role="alert">
+						<i class="icon anm anm-truck-l icon-large"></i> &nbsp;<strong>Congratulations!</strong> You've got free shipping!
+					</div>
+                	<form action="#" method="post" class="cart style2">
+                		<table>
+                            <thead class="cart__row cart__header">
+                                <tr>
+                                    <th colspan="2" class="text-center">Product</th>
+                                    <th class="text-center">Like</th>
+                                    <th class="text-center">Comment</th>
+                                    <th class="text-right"></th>
+                                    <th class="action">delit</th>
+                                </tr>
+                            </thead>
+                    		<tbody>
+                                {% for rs in comments %}
+                                <tr class="cart__row border-bottom line1 cart-flex border-top">
+                                    <td class="cart__image-wrapper cart-flex-item">
+                                        <a href="#"><img class="cart__image" src="{{ rs.product.image.url }}" alt=""></a>
+                                    </td>
+                                    <td class="cart__meta small--text-left cart-flex-item">
+                                        <div class="list-view-item__title">
+                                            <a href="/product/{{ rs.product.id }}/{{ rs.product.slug }}">{{ rs.product}}</a>
+                                        </div>
+
+                                        <div class="cart__meta-text">
+{#                                            Color: Navy<br>Size: Small<br>#}
+                                        </div>
+                                    </td>
+                                    <td class="cart__price-wrapper cart-flex-item">
+                                        <span class="money"><i class="fa fa-thumbs-up fa-lg"> + {{ rs.rate }}</i></span>
+                                    </td>
+                                    <td class="cart__update-wrapper cart-flex-item text-right">
+                                        <div class="cart__qty text-center">
+                                            <div class="qtyField">
+                                                {{ rs.comment}}
+{#                                                <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>#}
+{#                                                <input class="cart__qty-input qty" type="number" name="updates[]" id="qty" value="1" pattern="[0-9]*">#}
+{#                                                <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>#}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-right small--hide cart-price">
+                                        <div></div>
+                                    </td>
+                                    <td class="text-center small--hide"><a href="/user/deletecomment/{{ rs.id }}"onclick="return confirm('Will be Delete ! Are you sure?')" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
+                                </tr>
+
+                                {% endfor %}
+                            </tbody>
+                    		<tfoot>
+{#                                <tr>#}
+{#                                    <td colspan="3" class="text-left"><a href="http://annimexweb.com/" class="btn btn-secondary btn--small cart-continue">Continue shopping</a></td>#}
+{#                                    <td colspan="3" class="text-right">#}
+{#	                                    <button type="submit" name="clear" class="btn btn-secondary btn--small  small--hide">Clear Cart</button>#}
+{#                                    	<button type="submit" name="update" class="btn btn-secondary btn--small cart-continue ml-2">Update Cart</button>#}
+{#                                    </td>#}
+{#                                </tr>#}
+                            </tfoot>
+                    </table>
+                    </form>
+               	</div>
+
+
+                <div class="container mt-4">
+                    <div class="row">
+                    	<div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+{#                        	<h5>Discount Codes</h5>#}
+                            <form action="#" method="post">
+                            	<div class="form-group">
+{#                                    <label for="address_zip">Enter your coupon code if you have one.</label>#}
+{#                                    <input type="text" name="coupon">#}
+                                </div>
+{#                                <div class="actionRow">#}
+{#                                    <div><input type="button" class="btn btn-secondary btn--small" value="Apply Coupon"></div>#}
+{#                                </div>#}
+                            </form>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+{#                        	<h5>Estimate Shipping and Tax</h5>#}
+							<form action="#" method="post">
+                                <div class="form-group">
+{#                                    <label for="address_country">Country</label>#}
+{#                                    <select id="address_country" name="address[country]" data-default="United States"><option value="Belgium" data-provinces="[]">Belgium</option>#}
+{#                                        <option value="---" data-provinces="[]">---</option>#}
+{#                                        <option value="Afghanistan" data-provinces="[]">Afghanistan</option>#}
+{##}
+{#                                        <option value="Zimbabwe" data-provinces="[]">Zimbabwe</option></select>#}
+                                </div>
+
+                                <div class="form-group">
+{#                                    <label>State</label>#}
+{#                                    <select id="address_province" name="address[province]" data-default="">#}
+{#                                      <option value="Alabama">Alabama</option>#}
+{#                                      <option value="Alaska">Alaska</option>#}
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+{#                                    <label for="address_zip">Postal/Zip Code</label>#}
+{#                                    <input type="text" id="address_zip" name="address[zip]">#}
+                                </div>
+
+                                <div class="actionRow">
+{#                                    <div><input type="button" class="btn btn-secondary btn--small" value="Calculate shipping"></div>#}
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!--End Body Content-->
+{% block footer %}{% include 'footer.html' %} {% endblock %}
+    <!--End Footer-->
+    <!--Scoll Top-->
+    <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
+    <!--End Scoll Top-->
+
+     <!-- Including Jquery -->
+     <script src="{% static 'assets/js/vendor/jquery-3.3.1.min.js'%}"></script>
+     <script src="{% static 'assets/js/vendor/jquery.cookie.js'%}"></script>
+     <script src="{% static 'assets/js/vendor/modernizr-3.6.0.min.js'%}"></script>
+     <script src="{% static 'assets/js/vendor/wow.min.js'%}"></script>
+     <!-- Including Javascript -->
+     <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+     <script src="{% static 'assets/js/plugins.js'%}"></script>
+     <script src="{% static 'assets/js/popper.min.js'%}"></script>
+     <script src="{% static 'assets/js/lazysizes.js'%}"></script>
+     <script src="{% static 'assets/js/main.js'%}"></script>
+</div>
+</body>
+
+<!-- belle/cart-variant1.html   11 Nov 2019 12:44:32 GMT -->
+</html>
